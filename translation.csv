@@ -1,0 +1,13 @@
+keys	en	zh
+DESCRIPTION	[b]MIDI Flattener[/b] can set the tempo and time signature of a MIDI file to fixed values while keeping all note and event timestamps unchanged, making them easier to use with applications that have different workflow requirements.	[b]MIDI Flattener[/b] 可以在保持所有的音符以及事件的时间码不变的情况下，将 MIDI 文件的速度和拍号设置为固定值，使它们更容易与具有不同工作流程要求的应用程序一起使用。
+GUIDE	[b]Guide[/b]\n1. Configure the [b][i]target tempo[/i][/b] and [b][i]target time signature[/i][/b] for the final output MIDI file\n2. Click [b][i]Add MIDI File[/i][/b] or drag the MIDI file you want to convert into the application window\n3. Click the [b][i]Run Convert[/i][/b] button, and the converted file will be saved in the source MIDI file's directory with the extension [b][i]*.flattened.mid[/i][/b]	[b]使用指南[/b]\n1. 配置最终输出的MIDI文件的 [b][i]目标速度[/i][/b] 以及 [b][i]目标拍号[/i][/b]\n2. 点击 [b][i]添加MIDI文件[/i][/b] 或需要要转换的MIDI文件拖动到应用程序窗口中\n3. 点击 [b][i]运行转换[/i][/b] 按钮，转换后的文件会以  [b][i]*.flattened.mid[/i][/b] 的扩展名被保存于各个MIDI源文件的目录中
+TARGET_TEMPO	Target Tempo	目标速度
+TARGET_TIMESIG	Target Time Signature	目标拍号
+ADD_MIDI_FILE	Add MIDI File	添加MIDI文件
+REMOVE_ALL	Remove All	移除全部
+REMOVE_SELECTED	Remove Selected	移除选中
+RUN_CONVERT	Run Convert	运行转换
+CONVERTING	Converting...	正在转换...
+CONVERTING_ERROR_TITLE	Error when converting MIDI file	转换MIDI文件时发生错误
+CONVERTING_ERROR_TEXT	An error occurred while converting the MIDI file. Please check and report the following error message\n<ErrorMessage>	转换MIDI文件时发生错误。请检查并报告以下错误信息\n<ErrorMessage>
+LAST_CONVERT_LOG	<Time> - Converted <Amount> MIDI file(s)	<Time> - 转换了 <Amount> 个 MIDI 文件

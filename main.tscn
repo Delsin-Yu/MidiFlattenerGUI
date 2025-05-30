@@ -1,0 +1,177 @@
+[gd_scene load_steps=7 format=3 uid="uid://fp6830p14igf"]
+
+[ext_resource type="Script" uid="uid://cfaq2g2wcllaw" path="res://Program.cs" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c2gxmu1r2y485" path="res://LoadingIndicatorMask.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://n3ka6rqs6yvq" path="res://LoadingIndicatorFill.png" id="3_1bvp3"]
+[ext_resource type="Shader" uid="uid://3er5m0rd1atw" path="res://RAsAlpha.tres" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://p7aedlvoq31w" path="res://rotate.gd" id="5_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("3_lquwl")
+
+[node name="Main" type="PanelContainer" node_paths=PackedStringArray("_targetTempo", "_targetTimeSignature", "_selectMidi", "_selectedMidi", "_clearAll", "_removeSelected", "_runConvert", "_convertingIndicator", "_convertLog")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+_targetTempo = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/TargetTempoValue")
+_targetTimeSignature = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/LineEdit")
+_selectMidi = NodePath("MarginContainer/VBoxContainer/SelectMidi")
+_selectedMidi = NodePath("MarginContainer/VBoxContainer/Selected")
+_clearAll = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/ClearAllBtn")
+_removeSelected = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RemoveSelectedBtn")
+_runConvert = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RunConvertBtn")
+_convertingIndicator = NodePath("ConvertingIndicator")
+_convertLog = NodePath("MarginContainer/VBoxContainer/FinishConvertMarker")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "DESCRIPTION"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GUIDE" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "GUIDE"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TargetTempo" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TARGET_TEMPO"
+
+[node name="TargetTempoValue" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 500.0
+value = 140.0
+rounded = true
+alignment = 2
+select_all_on_focus = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TargetTimeSig" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TARGET_TIMESIG"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4/4"
+placeholder_text = "X/X"
+alignment = 2
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+draw_control_chars = true
+select_all_on_focus = true
+
+[node name="SelectMidi" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ADD_MIDI_FILE"
+
+[node name="Selected" type="ItemList" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ClearAllBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "REMOVE_ALL"
+
+[node name="RemoveSelectedBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "REMOVE_SELECTED"
+
+[node name="RunConvertBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "RUN_CONVERT"
+
+[node name="FinishConvertMarker" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "LAST_CONVERT_LOG"
+
+[node name="ConvertingIndicator" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConvertingIndicator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -141.5
+offset_right = 128.0
+offset_bottom = 141.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="Control" parent="ConvertingIndicator/VBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LoadingIndicator" type="Sprite2D" parent="ConvertingIndicator/VBoxContainer/TextureRect"]
+clip_children = 1
+position = Vector2(128, 128)
+texture = ExtResource("2_h2yge")
+
+[node name="Fill" type="Sprite2D" parent="ConvertingIndicator/VBoxContainer/TextureRect/LoadingIndicator"]
+material = SubResource("ShaderMaterial_7mycd")
+rotation = -0.829038
+texture = ExtResource("3_1bvp3")
+script = ExtResource("5_lquwl")
+degress = 360.0
+
+[node name="Label" type="Label" parent="ConvertingIndicator/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "CONVERTING"
+horizontal_alignment = 1
