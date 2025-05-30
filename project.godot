@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Midi Flattener GUI"
+config/version="v1.0"
 run/main_scene="uid://fp6830p14igf"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.176471, 0.176471, 0.176471, 1)

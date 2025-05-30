@@ -28,8 +28,6 @@ public partial class Program : Control
     [GeneratedRegex(@"^(?<BeatsPerBar>[1-9][0-9]?[0-9]?)/(?<NoteLengthPerBeat>[1-9][0-9]?[0-9]?)$")]
     private static partial Regex ValidTimeSignatureRegex { get; }
 
-    private const string Version = "v1.0";
-    
     public override void _Ready()
     {
         _targetTempo.NotNull();
@@ -43,7 +41,7 @@ public partial class Program : Control
         _convertLog.NotNull();
         _version.NotNull();
 
-        _version.Text = Version;
+        _version.Text = ProjectSettings.GetSetting("application/config/version").ToString();
         
         void ToggleControls(bool enabled)
         {
