@@ -1,6 +1,6 @@
 # Midi Flattener GUI
 
-![img](.\ApplicationLogo.png)
+<img src="ApplicationLogo.png" width="256">
 
 MIDI files that are exported from Notations Programs like MuseScore or Sibelius often contain tempo changes, which can be inconvenient for playing back in Digital Audio Workstations (DAWs) like FL Studio, especially when you are mixing them with other waveforms tracks, as playback can become misaligned when starting in the middle of a song.
 
