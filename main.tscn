@@ -9,7 +9,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("3_lquwl")
 
-[node name="Main" type="PanelContainer" node_paths=PackedStringArray("_targetTempo", "_targetTimeSignature", "_selectMidi", "_selectedMidi", "_clearAll", "_removeSelected", "_runConvert", "_convertingIndicator", "_convertLog")]
+[node name="Main" type="PanelContainer" node_paths=PackedStringArray("_targetTempo", "_targetTimeSignature", "_selectMidi", "_selectedMidi", "_clearAll", "_removeSelected", "_runConvert", "_convertingIndicator", "_convertLog", "_version")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,6 +25,7 @@ _removeSelected = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RemoveS
 _runConvert = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RunConvertBtn")
 _convertingIndicator = NodePath("ConvertingIndicator")
 _convertLog = NodePath("MarginContainer/VBoxContainer/FinishConvertMarker")
+_version = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/Version")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -128,6 +129,14 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "RUN_CONVERT"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Version" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "VERSION"
+
 [node name="FinishConvertMarker" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -163,7 +172,7 @@ texture = ExtResource("2_h2yge")
 
 [node name="Fill" type="Sprite2D" parent="ConvertingIndicator/VBoxContainer/TextureRect/LoadingIndicator"]
 material = SubResource("ShaderMaterial_7mycd")
-rotation = -0.829038
+rotation = -3.03687
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_lquwl")
 degress = 360.0

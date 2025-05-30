@@ -21,11 +21,14 @@ public partial class Program : Control
     [Export] private Button? _runConvert;
     [Export] private Control? _convertingIndicator;
     [Export] private Label? _convertLog;
+    [Export] private Label? _version;
 
     private static readonly SearchValues<char> ValidStarterDigit = SearchValues.Create("123456789");
     private static readonly SearchValues<char> ValidDigit = SearchValues.Create("1234567890");
     [GeneratedRegex(@"^(?<BeatsPerBar>[1-9][0-9]?[0-9]?)/(?<NoteLengthPerBeat>[1-9][0-9]?[0-9]?)$")]
     private static partial Regex ValidTimeSignatureRegex { get; }
+
+    private const string Version = "v1.0";
     
     public override void _Ready()
     {
@@ -38,6 +41,9 @@ public partial class Program : Control
         _runConvert.NotNull();
         _convertingIndicator.NotNull();
         _convertLog.NotNull();
+        _version.NotNull();
+
+        _version.Text = Version;
         
         void ToggleControls(bool enabled)
         {
