@@ -41,7 +41,7 @@ public partial class Program : Control
         _convertLog.NotNull();
         _version.NotNull();
 
-        _version.Text = ProjectSettings.GetSetting("application/config/version").ToString();
+        _version.Text = "v" + ProjectSettings.GetSetting("application/config/version");
         
         void ToggleControls(bool enabled)
         {
