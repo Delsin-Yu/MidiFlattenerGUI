@@ -172,7 +172,6 @@ texture = ExtResource("2_h2yge")
 
 [node name="Fill" type="Sprite2D" parent="ConvertingIndicator/VBoxContainer/TextureRect/LoadingIndicator"]
 material = SubResource("ShaderMaterial_7mycd")
-rotation = 0.250001
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_lquwl")
 degress = 360.0
