@@ -30,6 +30,8 @@ public partial class Program : Control
 
     public override void _Ready()
     {
+        TranslationServer.SetLocale(OS.GetLocaleLanguage());
+        
         _targetTempo.NotNull();
         _targetTimeSignature.NotNull();
         _selectMidi.NotNull();
